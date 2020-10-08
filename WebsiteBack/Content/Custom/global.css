@@ -1,0 +1,187 @@
+/* Global CSS Start */
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 31px;
+}
+
+h4 {
+    font-size: 25px;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 19px;
+    }
+    h4 {
+        font-size: 18px;
+    }
+    h5 {
+        font-size: 17px;
+    }
+    h6 {
+        font-size: 16px;
+    }
+}
+
+p, a, span, article, small, aside, kbd, code, dl, label, blockquote, abbr, mark, input, table {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    word-break: normal;
+}
+
+.gap {
+    height: 1.8rem;
+}
+
+.padding-x {
+    padding: 1rem 0;
+}
+
+.padding-y {
+    padding: 0 1rem;
+}
+
+.padding-xy {
+    padding: 1rem;
+}
+
+.margin-x {
+    margin: 1rem 0;
+}
+
+.margin-y {
+    margin: 0 1rem;
+}
+
+.margin-xy {
+    margin: 1rem;
+}
+
+.background-white {
+    background-color: #ffffff !important;
+}
+
+.background-offwhite {
+    background-color: #f3f3f1 !important;
+}
+
+.background-black {
+    background-color: #333333 !important;
+}
+
+.background-primary {
+    background-color: #79f1a4 !important;
+}
+
+.background-secondary {
+    background-color: #0e5cad !important;
+}
+
+.background-gradiant {
+    background: linear-gradient(to left, #79f1a4 0%, #0e5cad 100%);
+}
+
+.color-white {
+    color: #ffffff !important;
+}
+
+.color-black {
+    color: #333333 !important;
+}
+
+.color-offwhite {
+    color: #f3f3f1 !important;
+}
+
+.color-primary {
+    color: #79f1a4 !important;
+}
+
+.color-secondary {
+    color: #0e5cad !important;
+}
+
+.shadow {
+    box-shadow: 1px 1px 2px rgba(33, 33, 33, .2);
+    transition: box-shadow .3s;
+}
+
+.shadow-hover:hover {
+    box-shadow: 3px 3px 8px rgba(33, 33, 33, .2);
+    transition: box-shadow .3s;
+}
+
+.shadow-hover-zoom:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.05);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.white-color-underline {
+    width: 2rem;
+    padding: 2px;
+    background: #ffffff;
+    border-radius: 150px;
+}
+
+.black-color-underline {
+    width: 2rem;
+    padding: 2px;
+    background: #333333;
+    border-radius: 150px;
+}
+
+.primary-color-underline {
+    width: 2rem;
+    padding: 2px;
+    background: #79f1a4;
+    border-radius: 150px;
+}
+
+.secondary-color-underline {
+    width: 2rem;
+    padding: 2px;
+    background: #0e5cad;
+    border-radius: 150px;
+}
+
+@media screen and (max-width: 768px) {
+    .white-color-underline, .black-color-underline, .primary-color-underline, .secondary-color-underline {
+        width: 1.4rem;
+    }
+}
+
+/* Global CSS End */

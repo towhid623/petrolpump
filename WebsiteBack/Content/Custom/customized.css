@@ -1,0 +1,22 @@
+﻿.hide-selected .btn:not(.btn-link):not(.btn-circle){
+    display:none;
+}
+.select2-results__option span {
+    position: absolute;
+}
+.select2-selection__rendered span{
+    position:absolute;
+}
+.table-img img{
+    height:auto;
+    width:100%;
+    max-height:100px;
+    max-width:200px;
+}
+.ad-banner-heading h2{
+    float:left;
+}
+.ad-banner-heading i {
+    font-size: 20px;
+    margin-left: 10px;
+}

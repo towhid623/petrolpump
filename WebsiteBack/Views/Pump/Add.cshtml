@@ -1,0 +1,273 @@
+﻿@model WebsiteBack.Models.ViewModels.VmPump
+@{
+    ViewBag.Title = "Pump";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="header">
+        <h4 class="title">Add</h4>
+    </div>
+    <div class="content">
+        @using (Html.BeginForm("Add", "Pump", FormMethod.Post, new { @id = "mainForm", enctype = "multipart/form-data", @autocomplete = "off", onSubmit = "return ValidateFormData()" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label for="Name">Thana<sup>*</sup></label>
+                        @Html.DropDownListFor(model => model.ThanaHeaderId, new SelectList(ViewBag.ThanaList, "Id", "Name"), "Select", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(Model => Model.ThanaHeaderId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label for="Name">Name<sup>*</sup></label>
+                        @Html.TextBoxFor(Model => Model.PumpName, new { @class = "form-control", id = "ThanaName", @maxlength = "100", @placeholder = "Pump Name" })
+                        @Html.ValidationMessageFor(Model => Model.PumpName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label for="Name">Description</label>
+                        @Html.TextAreaFor(Model => Model.Description, new { @class = "form-control", @maxlength = "1000", @placeholder = "Location", rows = "3" })
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label for="Name">Location<sup>*</sup></label>
+                        @Html.TextAreaFor(Model => Model.Location, new { @class = "form-control", @maxlength = "1000", @placeholder = "Location", rows = "3" })
+                        @Html.ValidationMessageFor(Model => Model.Location, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="form-group">
+                        <label for="Name">Mobile Number</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                @Html.TextBoxFor(Model => Model.MobileNumber, new { @class = "form-control", id = "MobileNumber", @placeholder = "Mobile Number" })
+                                @Html.ValidationMessageFor(Model => Model.MobileNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="form-group">
+                        <label for="Name">Phone Number</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                @Html.TextBoxFor(Model => Model.PhoneNumber, new { @class = "form-control", id = "PhoneNumber", @placeholder = "Phone Number" })
+                                @Html.ValidationMessageFor(Model => Model.PhoneNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="form-group">
+                        <label for="Name">Email Address</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                @Html.TextBoxFor(Model => Model.EmailAddress, new { @class = "form-control", id = "EmailAddress", @placeholder = "Email Address" })
+                                @Html.ValidationMessageFor(Model => Model.EmailAddress, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="form-group">
+                        <label for="Name">Upload Logo</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="file" class="form-control" placeholder="Upload Image" name="PumpLogoImage" accept="image/" id="LogoImage" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true" id="spnfileTxt"></span>
+                                <span class="field-validation-valid text-danger" id="spnfile"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="form-group">
+                        <label for="Name">Upload Map Photo</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="file" class="form-control" placeholder="Upload Image" name="PumpMapImage" accept="image/" id="MapImage" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true" id="spnfileTxt"></span>
+                                <span class="field-validation-valid text-danger" id="spnfile"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="form-group">
+                        <label for="Name">Upload Pump Area Photo</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="file" class="form-control" placeholder="Upload Image" name="PumpImage" accept="image/" id="AreaImage" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="File" data-valmsg-replace="true" id="spnfileTxt"></span>
+                                <span class="field-validation-valid text-danger" id="spnfile"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table id="itemAddTable">
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="Name">Available Item</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <select name="VmPumpItem[0].ItemHeaderId" class="form-control">
+                                        <option value="">Select</option>
+                                        @foreach (var i in ViewBag.ItemList)
+                                        {
+                                            <option value="@i.Id">@i.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="Name">Unit Price</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" name="VmPumpItem[0].UnitPrice" value="0" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-info btn-fill item-add-btn">+</button>
+                    </td>
+                </tr>
+            </table>
+            
+            <button type="submit" class="btn btn-info btn-fill pull-right">Save</button>
+            <div class="clearfix"></div>
+        }
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">List</h4>
+            </div>
+            <div class="content table-responsive table-full-width">
+                <table id="example" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" role="dialog" id="confirmation">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" style="text-align:center; font-size:30px; color:orangered">Delete Confirmation</h1>
+            </div>
+            <div class="modal-body" style="text-align:center;">
+                <p><b>Are you surely want to delete this?</b></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger confirmed" data-dismiss="modal">Delete</button>
+                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        var oTable;
+        var counter = 0;
+        $(document).ready(function () {
+            oTable = $('#example').DataTable({
+                "bprocessing": true,
+                "bserverSide": true,
+                "binfo": true,
+                "bstateSave": true,
+                "blengthMenu": [[10, 20, 50, "All"], [10, 20, 50, "All"]],
+                "bpaging": true,
+                "ajax": {
+                    "url": "/Pump/AjaxTable"
+                },
+                "columns": [
+                    { "data": "PumpName" },
+                    {
+                        "title": "Action",
+                        "render": function (data, type, row, meta) {
+                            return '<a href="javascript:void(0)" class="delete"><i class="far fa-trash-alt"></i></a>';
+                        }
+                    }
+                ],
+                "order": [[1, "desc"]]
+            });
+        });
+
+        //START
+        //DELETE DATA
+        $(function () {
+            $('#example tbody').on('click', 'a.delete', function () {
+                $('#confirmation').modal();
+                var v = $(this).parent().parent();
+                console.log(v);
+                var rowData = oTable.row(v).data();
+                console.log(rowData);
+                id = parseInt(rowData.PumpHeaderId);
+                console.log(id);
+            });
+        });
+
+        $(function () {
+            $('#confirmation').on('click', '.confirmed', function () {
+                $.get("/Pump/Disable/" + id, function (data) {
+                    id = 0;
+                    if (!data || typeof data === 'undefined' || data == "") {
+                        Swal.fire({
+                            type: 'error',
+                            position: 'top-end',
+                            text: 'Could not delete because data in use elsewere. Please remove dependency to delete.',
+                            showConfirmButton: false,
+                            timer: 4000
+                        });
+                    }
+                    else {
+                        Swal.fire({
+                            position: 'top-end',
+                            type: 'success',
+                            text: 'Deleted Successfully',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    }
+                    setTimeout(function () {
+                        oTable.ajax.reload();
+                    }, 2300);
+                });
+            });
+        });
+        //END DELETE DATA
+
+        $('.item-add-btn').on('click', function () {
+            ++counter;
+            var newRow = '<tr><td><div class="form-group"><label for="Name">Item</label><div class="form-group"><div class="form-line"><select name="VmPumpItem[' + counter + '].ItemHeaderId" class="form-control"><option value="">Select</option>@foreach (var i in ViewBag.ItemList){<option value="@i.Id">@i.Name</option>}</select></div></div></div></td ><td><div class="form-group"><label for="Name">Unit Price</label><div class="form-group"><div class="form-line"><input type="text" name="VmPumpItem[' + counter + '].UnitPrice" value="0" class="form-control" /></div></div></div></td></tr>';
+            $("#itemAddTable").append(newRow);
+        });
+
+    </script>
+}

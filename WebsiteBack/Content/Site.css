@@ -1,0 +1,421 @@
+﻿/* Global CSS Start  */
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.gap {
+    height: 1.8rem;
+}
+
+.gap-half {
+    height: 0.9rem;
+}
+
+.gap2x {
+    height: 3.6rem;
+}
+
+.padding-x {
+    padding: 0 1rem;
+}
+
+.padding-half-x {
+    padding: 0 0.5rem;
+}
+
+.padding-2x {
+    padding: 0 2rem;
+}
+
+.padding-y {
+    padding: 1rem 0;
+}
+
+.padding-half-y {
+    padding: 0.5rem 0;
+}
+
+.padding-2y {
+    padding: 2rem 0;
+}
+
+.padding-xy {
+    padding: 1rem;
+}
+
+.padding-half-xy {
+    padding: 0.5rem;
+}
+
+.padding-2xy {
+    padding: 2rem;
+}
+
+.padding-x-half-y {
+    padding: 0.5rem 1rem;
+}
+
+.padding-y-half-x {
+    padding: 1rem 0.5rem;
+}
+
+.margin-x {
+    margin: 0 1rem;
+}
+
+.margin-half-x {
+    margin: 0 0.5rem;
+}
+
+.margin-2x {
+    margin: 0 2rem;
+}
+
+.margin-y {
+    margin: 1rem 0;
+}
+
+.margin-half-y {
+    margin: 0 0.5rem;
+}
+
+.margin-2y {
+    margin: 2rem 0;
+}
+
+.margin-xy {
+    margin: 1rem;
+}
+
+.margin-half-xy {
+    margin: 0 0.5rem;
+}
+
+.margin-2xy {
+    margin: 2rem;
+}
+
+.background-white {
+    background-color: #ffffff !important;
+}
+
+.background-offwhite {
+    background-color: #f3f3f3 !important;
+}
+
+.background-black {
+    background-color: #2c2c2c !important;
+}
+
+.background-primary {
+    background-color: #2c7695 !important;
+}
+
+.background-secondary {
+    background-color: #214d72 !important;
+}
+
+.color-white {
+    color: #ffffff !important;
+}
+
+.color-black {
+    color: #2c2c2c !important;
+}
+
+.color-offwhite {
+    color: #f3f3f3 !important;
+}
+
+.color-primary {
+    color: #2c7695 !important;
+}
+
+.color-secondary {
+    color: #214d72 !important;
+}
+
+.button-primary {
+    color: #fff;
+    background-color: #2c7695;
+    border-color: #2c7695;
+}
+
+    .button-primary:hover {
+        color: #fff;
+        background-color: #214d72;
+        border-color: #214d72;
+    }
+
+.shadow {
+    box-shadow: 1px 1px 2px rgba(33, 33, 33, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.shadow-hover:hover {
+    box-shadow: 3px 3px 8px rgba(33, 33, 33, 0.2) !important;
+    transition: all 0.3s ease-in-out;
+    text-emphasis: none;
+}
+
+.shadow-hover-zoom:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.hover-zoom:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+.no-gutters [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.border-radius {
+    border-radius: 0.25rem;
+}
+
+/* Global CSS End */
+
+.select2-container--default .select2-selection--single {
+    height: 40px !important;
+}
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: 36px !important;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        top: 8px !important;
+    }
+
+.breadcrumb {
+    margin-bottom: 1.8rem !important;
+}
+
+/* Typography CSS Start */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 19px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+h5 {
+    font-size: 17px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+p, a, article, small, aside, kbd, code, dl, label, blockquote, abbr, mark, input, table, button {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    word-break: normal;
+    font-size: 12px;
+}
+
+@media (min-width: 576px) {
+    h1 {
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    h3 {
+        font-size: 31px;
+    }
+
+    h4 {
+        font-size: 25px;
+    }
+
+    h5 {
+        font-size: 20px;
+    }
+
+    h6 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
+
+/* Typography CSS end */
+
+/* Search Page CSS Start  */
+
+.search {
+    min-height: 100vh;
+    background: url('../Images/homepage.jpg') no-repeat scroll 0 0 / 100% 100%;
+    position: relative;
+}
+
+.search_area {
+    background: url('../Images/dot.png')repeat 0px 0px;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.search_area_data {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+    .search_area_data img {
+        height: 100px;
+        width: auto;
+        max-width: 260px;
+    }
+
+/* Search Page CSS End  */
+
+/* Search Result CSS Start  */
+
+.search_result {
+    min-height: 100vh;
+}
+
+.search_result_card {
+    margin-bottom: 1.8rem;
+}
+
+.search_result_item {
+    border: 10px solid #2c7695;
+    padding: 0px 0 25px 0;
+    margin: 50px;
+    position: relative;
+}
+
+    .search_result_item img {
+        margin: -55px 0 10px 0;
+        outline: 10px solid #fff;
+        height: 100px;
+        width: auto;
+        max-width: 260px;
+    }
+
+    .search_result_item .title {
+        padding: 10px 0;
+        margin: 0 -30px 20px;
+        border: 10px solid #fff;
+        position: relative;
+    }
+
+        .search_result_item .title:before {
+            content: "";
+            border-top: 15px solid #2c7695;
+            border-left: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+        }
+
+        .search_result_item .title:after {
+            content: "";
+            border-top: 15px solid #2c7695;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            position: absolute;
+            bottom: -40px;
+            right: 0;
+        }
+
+    .search_result_item .description p {
+        max-height: 3.25rem;
+        overflow: hidden;
+        word-break: break-all;
+    }
+
+@media (max-width: 768px) {
+    .search_result_item {
+        margin: 30px 10px;
+        padding: 0px 0 15px 0;
+    }
+
+        .search_result_item img {
+            margin: -50px 0 0 0;
+            height: 55px;
+            width: auto;
+            max-width: 150px;
+        }
+}
+
+/* Search Result CSS End  */
+
+/* Search Result Item CSS Start  */
+
+.map_image {
+    height: 80vh;
+}
+
+    .map_image img {
+        width: 100%;
+        height: 100%;
+    }
+
+.search_result_item_single_card {
+    margin-top: -60px;
+}
+
+.search_result_item_single_card_heading img {
+    height: 100px;
+    width: auto;
+    max-width: 260px;
+}
+
+@media (max-width: 768px) {
+    .map_image {
+        height: 50vh;
+    }
+
+    .search_result_item_single_card {
+        margin-top: -30px;
+    }
+
+    .search_result_item_single_card_heading img {
+        height: 100px;
+        width: auto;
+        max-width: 260px;
+    }
+
+    .search_result_item_single_card_heading img {
+        height: 55px;
+        width: auto;
+        max-width: 150px;
+    }
+}
+
+/* Search Result Item CSS End  */

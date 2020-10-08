@@ -1,0 +1,164 @@
+﻿@model WebsiteBack.Models.ViewModels.VmPumpSearch
+@{
+    ViewBag.Title = "Search";
+}
+
+<section class="search">
+    <div class="search_area">
+        <div class="search_area_data text-center padding-2xy">
+            <img src="~/Images/global-logo.png" alt="logo" />
+            <h1 class="color-white">Petrol Pump Finder</h1>
+            @using (Html.BeginForm("Search", "Index", FormMethod.Post,new { @onSubmit = "return ValidateSelectForm()" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row justify-content-center">
+                    <div class="col-xs-12 col-sm-6 col-md-3 margin-y">
+                        <select class="select2-division form-control" name="DivisionId">
+                            <option value="">Select Division</option>
+                        </select>
+                        @Html.ValidationMessageFor(model => model.DivisionId, "", new { @class = "text-danger" })
+                        <span id="spnDivisionId" style="display:none" class="text-danger"></span>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 margin-y">
+                        <select class="select2-district form-control" name="DistrictId">
+                            <option value="">Select District</option>
+                        </select>
+                        @Html.ValidationMessageFor(Model => Model.DistrictId, "", new { @class = "text-danger" })
+                        <span id="spnDistrictId" style="display:none" class="text-danger"></span>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 margin-y">
+                        <select class="select2-thana form-control" name="ThanaId">
+                            <option value="">Select Thana</option>
+                        </select>
+                        @Html.ValidationMessageFor(Model => Model.ThanaId, "", new { @class = "text-danger" })
+                        <span id="spnThanaId" style="display:none" class="text-danger"></span>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 margin-y">
+                        <select class="select2-pump form-control" name="PumpId">
+                            <option value="" selected>Select Pump</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-light" >
+                    <i class="fas fa-search-location"></i> Search
+                </button>
+            }
+
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script>
+        var divisionList = JSON.parse('@Html.Raw(Json.Encode(ViewBag.DivisionList))');
+        var districtList = JSON.parse('@Html.Raw(Json.Encode(ViewBag.DistrictList))');
+        var thanaList = JSON.parse('@Html.Raw(Json.Encode(ViewBag.ThanaList))');
+        var pumpList = JSON.parse('@Html.Raw(Json.Encode(ViewBag.PumpList))');
+
+      $(document).ready(function() {
+        $(".select2-division").select2({
+          minimumResultsForSearch: 1,
+          placeholder: "Select Division"
+        });
+        $(".select2-district").select2({
+          minimumResultsForSearch: 1,
+          placeholder: "Select District"
+          });
+          $(".select2-thana").select2({
+              minimumResultsForSearch: 1,
+              placeholder: "Select Thana"
+          });
+          $(".select2-pump").select2({
+              minimumResultsForSearch: 1,
+              placeholder: "Select Pump"
+          });
+          $(".select2-division").append(new Option("Select Division", null));
+          if (divisionList != null && typeof divisionList != "undefined") {
+              divisionList.forEach(function (elem) {
+                  $(".select2-division").append(new Option(elem.DivisionName, elem.DivisionHeaderId));
+              });
+          }
+        });
+        $(".select2-division").change(function () {
+            var id = $(".select2-division").val();
+            DivisionWiseDistrict(id);
+        });
+        $(".select2-district").change(function () {
+            var id = $(".select2-district").val();
+            DistrictWiseThana(id);
+        });
+        $(".select2-thana").change(function () {
+            var id = $(".select2-thana").val();
+            ThanaWisePump(id);
+        });
+        function DivisionWiseDistrict(id) {
+            ClearDistrict();
+            debugger;
+            disList = districtList.filter(f => f.DivisionHeaderId == id);
+            if (disList != null && typeof disList != "undefined") {
+                disList.forEach(function (elem) {
+                    $(".select2-district").append(new Option(elem.DistrictName,elem.DistrictHeaderId));
+                });
+            }
+        }
+        function ClearDistrict() {
+            $(".select2-district").html('');
+            $(".select2-district").append(new Option("Select District", null));
+            ClearThana();
+        }
+        function DistrictWiseThana(id) {
+            ClearThana();
+            thaList = thanaList.filter(f => f.DistrictHeaderId == id);
+            if (thaList != null && typeof thaList != "undefined") {
+                thaList.forEach(function (elem) {
+                    $(".select2-thana").append(new Option(elem.ThanaName,elem.ThanaHeaderId ));
+                });
+            }
+        }
+        function ClearThana() {
+            $(".select2-thana").html('');
+            $(".select2-thana").append(new Option("Select Thana", null));
+            ClearPump();
+        }
+        function ThanaWisePump(id) {
+            ClearPump();
+            pumList = pumpList.filter(f => f.ThanaHeaderId == id);
+            if (pumList != null && typeof pumList != "undefined") {
+                pumList.forEach(function (elem) {
+                    $(".select2-pump").append(new Option(elem.PumpName,elem.PumpHeaderId));
+                });
+            }
+        }
+        function ClearPump() {
+            $(".select2-pump").html('');
+            $(".select2-pump").append(new Option("Select Pump", null));
+        }
+        function ValidateSelectForm() {
+            debugger;
+            var isValid = true;
+            var division = $('.select2-division').val();
+            var district = $('.select2-district').val();
+            var thana = $('.select2-thana').val();
+            $('#spnDivisionId').hide();
+            $('#spnDistrictId').hide();
+            $('#spnThanaId').hide();
+            if (division == null || division == "" || division == 0 || typeof division == "undefined" || division == "null") {
+                $('#spnDivisionId').text('Division is required');
+                $('#spnDivisionId').show();
+                isValid = false;
+            }
+            if (district == null || district == "" || district == 0 || typeof district == "undefined" || district == "null") {
+                $('#spnDistrictId').text('District is required');
+                $('#spnDistrictId').show();
+                isValid = false;
+            }
+            if (thana == null || thana == "" || thana == 0 || typeof thana == "undefined" || thana == "null") {
+                $('#spnThanaId').text('Thana is required');
+                $('#spnThanaId').show();
+                isValid = false;
+            }
+            return isValid;
+        }
+    </script>
+}
+

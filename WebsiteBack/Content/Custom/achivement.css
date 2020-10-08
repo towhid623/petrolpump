@@ -1,0 +1,11 @@
+.achivement {}
+
+.achivement_item {}
+
+.achivement_item_single {
+    margin-bottom: 2rem;
+}
+
+.achivement_item_single i {
+    font-size: 4rem;
+}

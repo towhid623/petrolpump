@@ -1,0 +1,24 @@
+.footer_item_single p a {
+    color:#fff;
+}
+.footer_item_single p a:hover {
+    text-decoration:none;
+}
+
+.footer_bottom_item_single a {
+    color: #f3f3f1;
+}
+
+.footer_bottom_item_single a:hover {
+    text-decoration: none;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.back-to-top i {
+    font-size: 2rem;
+}

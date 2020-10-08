@@ -1,0 +1,40 @@
+.package {}
+
+.package_item {}
+
+.package_item_single {}
+
+.package_item_table {
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1px solid #0e5cad;
+    transition: all 0.3s ease-in-out 0s;
+    margin-bottom: 2rem;
+}
+
+.package_item_table .package_item_head {
+    padding: 2rem;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.package_item_table .package_item_content ul {
+    margin: 0;
+    padding: 1rem 0;
+}
+
+.package_item_table .package_item_content ul li {
+    list-style: none;
+    text-transform: uppercase;
+    padding: 0.6rem 0;
+    cursor: pointer;
+    border-left: 0.3rem solid transparent;
+    border-right: 0.3rem solid transparent;
+    transition: 0.3s;
+}
+
+.package_item_table .package_item_content ul li:hover {
+    border-left-color: #0e5cad;
+    border-right-color: #0e5cad;
+    transition: 0.3s;
+}

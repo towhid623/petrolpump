@@ -1,0 +1,36 @@
+.service {}
+
+.service_item {}
+
+.service_item_single {
+    border: solid 5px #0e5cad;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.service_item_single:hover {
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.service_item_single h4, .service_item_single p {
+    color: #333333;
+}
+
+    .service_item_single article {
+        max-height: 300px;
+        height: 100%;
+        overflow: hidden;
+    }
+
+.service_item_single i {
+    font-size: 3rem;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.service_item_single:hover i {
+    color: #0e5cad;
+    transition: all 0.3s ease-in-out 0s;
+}

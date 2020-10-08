@@ -1,0 +1,44 @@
+﻿@model WebsiteBack.Models.ViewModels.VmPumpSearchObject
+@{
+    ViewBag.Title = "SearchResult";
+}
+
+<section class="search_result background-offwhite padding-2xy">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb shadow background-white">
+            <li class="breadcrumb-item">
+                <a href="#"><i class="fas fa-map-marker-alt"></i>&nbsp;>&nbsp;@Model.DivisionName</a>
+            </li>
+            <li class="breadcrumb-item"><a href="#">@Model.DistrictName</a></li>
+            <li class="breadcrumb-item active" aria-current="page">@Model.ThanaName</li>
+        </ol>
+    </nav>
+    <div class="row justify-content-center">
+        @foreach (var i in Model.VmPumpSearchList)
+        {
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                <div class="card background-white padding-xy shadow shadow-hover search_result_card">
+                    <div class="search_result_item text-center">
+                        <img class="background-white" src="@i.LogoUrl" alt="Logo" />
+                        <h3 class="title text-white background-primary text-uppercase">
+                            @i.PumpName
+                        </h3>
+                        <div class="description margin-x text-justify">
+                            <p>
+                                <b>Location :&nbsp;</b>@i.Location
+                            </p>
+                            <p>
+                                <b>Available Items :&nbsp;</b>@i.Items
+                            </p>
+                            <p>
+                                <b>Contact Numbers :&nbsp;</b>@i.ContactNumbers
+                            </p>
+                        </div>
+                        <a href="/Index/SearchResultItem/@i.PumpId"><button class=" btn button-primary">View Details</button></a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+

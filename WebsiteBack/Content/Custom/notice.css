@@ -1,0 +1,6 @@
+.notice {
+    top: 100px;
+    background-color: rgba(33, 33, 33, .2);
+    z-index: 1;
+    max-width: 50%;
+}

@@ -1,0 +1,41 @@
+﻿@model WebsiteBack.Models.ViewModels.VmPumpSearchDetails
+@{
+    ViewBag.Title = "SearchResultItem";
+}
+
+<section class="search_result_item_single background-offwhite">
+    <div class="map_image"><img src="@Model.MapUrl" alt="Map" /></div>
+    <div class="padding-2x">
+        <div class="card shadow padding-xy background-white search_result_item_single_card">
+            <article class="text-center search_result_item_single_card_heading">
+                <img src="@Model.LogoUrl" alt="Logo" />
+                <h2>@Model.PumpName</h2>
+                <p>
+                    @Model.Description
+                </p>
+            </article>
+            <div class="row search_result_item_single_card_details text-left">
+                <div class="col-xs-12 col-sm-6">
+                    <h4>Location</h4>
+                    <p>
+                        @Model.Location
+                    </p>
+                    <h4>Available items</h4>
+                    @foreach (var i in Model.Items)
+                    {
+                        <p><b>@i.ItemName: </b>@i.UnitPrice TK</p>
+                    }
+                    <h4>Contact Number</h4>
+                    <p>
+                        @Model.ContactNumber
+                    </p>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <img class="w-100" src="@Model.ImgUrl" alt="image" />
+                </div>
+            </div>
+        </div>
+        <div class="gap"></div>
+    </div>
+</section>
+

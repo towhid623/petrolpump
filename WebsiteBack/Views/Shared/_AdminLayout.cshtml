@@ -1,0 +1,175 @@
+﻿ 
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>@ViewBag.Title</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="~/Content/admin/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/admin/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/admin/demo.css" rel="stylesheet" />
+    <link href="~/Content/admin/light-bootstrap-dashboard.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.12/sweetalert2.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/3fe98187d7.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css" rel="stylesheet">
+    <link href="~/Content/admin/admin-style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-color="azure" data-image="/Images/pertol.jpg">
+            <!--
+
+                Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+                Tip 2: you can also add an image using data-image tag
+
+            -->
+
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="~/Admin/Index" class="simple-text">
+                        Petrol Pump
+                    </a>
+                </div>
+
+                <ul class="nav">
+                    <li>
+                        <a href="~/Item/Add">
+                            <i class="fas fa-tint"></i>
+                            <p>Items</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Division/Add">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <p>Divisions</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/District/Add">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Districts</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Thana/Add">
+                            <i class="fas fa-location-arrow"></i>
+                            <p>Thanas</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Pump/Add">
+                            <i class="fas fa-gas-pump"></i>
+                            <p>Pump</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Account/Register">
+                            <i class="fas fa-users-cog"></i>
+                            <p>Register</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">@ViewBag.Title</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "", enctype = "multipart/form-data", autocomplete = "off" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <ul class="nav">
+                                        <li>
+                                            <a href="javascript-void(0)">
+                                                <button type="submit">Sign Out</button>
+                                            </a>
+                                        </li>
+                                        </ul>
+                                        }
+                                        @*<a href="~/Account/LogOff">
+                    <p>Log out</p>
+                </a>*@
+                                </li>
+                            <li class="separator hidden-lg"></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <p class="copyright pull-right">
+                        &copy;
+                        <script>document.write(new Date().getFullYear())</script>
+                    </p>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/admin/jquery.3.2.1.min.js"></script>
+    <script src="~/Scripts/admin/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.2.6/dist/sweetalert2.all.min.js"></script>
+    <script src="~/Scripts/admin/chartist.min.js"></script>
+    <script src="~/Scripts/admin/bootstrap-notify.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @*<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>*@
+    <script src="~/Scripts/admin/light-bootstrap-dashboard.js"></script>
+    <script src="~/Scripts/admin/demo.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            demo.initChartist();
+            $.notify({
+                icon: 'fas fa-gas-pump',
+                message: "Welcome to <b>Petrol Pump Finder</b>"
+            }, {
+                    type: 'info',
+                    timer: 1000
+                });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var url = window.location;
+            $('ul.nav a[href="' + url + '"]').parent().addClass('active');
+            $('ul.nav a').filter(function () {
+                return this.href == url;
+            }).parent().addClass('active');
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

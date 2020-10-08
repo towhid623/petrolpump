@@ -1,0 +1,54 @@
+/* start topbar style */
+
+.topbar {
+    padding: .5rem 0rem;
+}
+
+.topbar a i {
+    margin-left: 10px;
+}
+
+/* end topbar style */
+
+/* start navbar style */
+
+.navbar {
+    opacity: 0.9;
+}
+
+.navbar a {
+    color: #f3f3f1 !important;
+    font-weight: 700;
+    font-family: 'Lora', serif;
+}
+
+@media screen and (min-width: 900px) {
+    .nav-link {
+        font-size: 1.1rem;
+        padding: 0 1rem !important;
+    }
+}
+
+/* mit css start */
+
+.nav-item::after {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 2px;
+    background: #fff;
+    transition: 0.2s;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.navbar-nav .nav-link {
+    transition: 0.2s;
+    color: #fff;
+}
+
+/* mit css end */
+
+/* end navbar style */
